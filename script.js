@@ -15,7 +15,7 @@ const papasFritas = new productos("Papas fritas", 2, 4)
 const bebida = new productos("coca cola", 3, 3)
 
 // Preguntar al cliente los productos que quiere comprar
-let comprarProductos = parseInt(prompt("Ingrese el número del producto que desea comprar \n1. Hamburguesa \n2. Papas fritas \n3. Coca Cola"))
+let comprarProductos = parseInt(prompt("Ingrese el número del producto que desea comprar \n1. Hamburguesa ($8)\n2. Papas fritas ($4)\n3. Coca Cola ($3)"))
 
 
 // Validacion de la elección
@@ -36,3 +36,10 @@ while (productoEscogido === false) {
         comprarProductos = parseInt(prompt("Ingrese un número valido"))
     }
 }
+
+// Calculo del precio total
+const cantidad = parseInt(prompt("Ingrese la cantidad del producto seleccionado"))
+
+const precio = infoProductoDeseado.precio * cantidad
+
+alert("El precio del producto deseado es de: $" + precio)
