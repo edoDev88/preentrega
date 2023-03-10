@@ -1,6 +1,6 @@
 // Un usuario va a escoger una cantidad de productos y luego se entregará la suma para el pago
 
-class productos{
+class producto{
     constructor(nombre, id, precio) {
         this.nombre = nombre
         this.id = id
@@ -10,15 +10,15 @@ class productos{
 
 
 // Creación de productos
-const hamburguesa = new productos("hamburguesa", 1, 8)
-const papasFritas = new productos("Papas fritas", 2, 4)
-const bebida = new productos("coca cola", 3, 3)
+const hamburguesa = new producto("hamburguesa", 1, 8)
+const papasFritas = new producto("Papas fritas", 2, 4)
+const bebida = new producto("coca cola", 3, 3)
 
 // Preguntar al cliente los productos que quiere comprar
 let comprarProductos = parseInt(prompt("Ingrese el número del producto que desea comprar \n1. Hamburguesa ($8)\n2. Papas fritas ($4)\n3. Coca Cola ($3)"))
 
 
-// Validacion de la elección
+// Validación de la elección
 let productoEscogido = false
 let infoProductoDeseado;
 
@@ -37,7 +37,7 @@ while (productoEscogido === false) {
     }
 }
 
-// Calculo del precio total
+// Cálculo del precio total
 const cantidad = parseInt(prompt("Ingrese la cantidad del producto seleccionado"))
 
 const precio = infoProductoDeseado.precio * cantidad
