@@ -1,6 +1,6 @@
 // Un usuario va a escoger una cantidad de productos y luego se entregará la suma para el pago
 
-class producto{
+class producto {
     constructor(nombre, id, precio) {
         this.nombre = nombre
         this.id = id
@@ -10,36 +10,50 @@ class producto{
 
 
 // Creación de productos
-const hamburguesa = new producto("hamburguesa", 1, 8)
-const papasFritas = new producto("Papas fritas", 2, 4)
-const bebida = new producto("coca cola", 3, 3)
+const lomoItaliano = new producto("Lomo italiano", 1, 10)
+const chacarero = new producto("Chacarero", 2, 8)
+const papasFritasG = new producto("Papas fritas - G", 3, 5)
+const papasFritasM = new producto("Papas fritas - M", 4, 4)
+const papasFritasP = new producto("Papas fritas - P", 5, 3)
+const bebidaC = new producto("Coca cola", 6, 3)
+const bebidaF = new producto("Fanta", 7, 3)
+
+// Catalogo de productos
+const productos = [lomoItaliano, chacarero, papasFritasG, papasFritasM, papasFritasP, bebidaC, bebidaF]
+console.log(productos)
+
 
 // Preguntar al cliente los productos que quiere comprar
-let comprarProductos = parseInt(prompt("Ingrese el número del producto que desea comprar \n1. Hamburguesa ($8)\n2. Papas fritas ($4)\n3. Coca Cola ($3)"))
+let comprarProductos = prompt("Ingrese el producto que desea comprar \n1. Lomo italiano ($10)\n2. Chacarero ($8)\n3. Papas fritas - G ($5) \n4. Papas fritas - M \n5. Papas fritas - P \n6. Coca cola \n7. Fanta")
 
 
 // Validación de la elección
-let productoEscogido = false
-let infoProductoDeseado;
+let seguirComprando = true
+const carritoCompra = []
 
-while (productoEscogido === false) {
-    if (comprarProductos === 1){
-        productoEscogido = true
-        infoProductoDeseado = hamburguesa
-    } else if (comprarProductos === 2) {
-        productoEscogido = true
-        infoProductoDeseado = papasFritas
-    }else if (comprarProductos === 3) {
-        productoEscogido = true
-        infoProductoDeseado = bebida
+while (seguirComprando === true) {
+    const producto = productos.find((producto) => producto.nombre === comprarProductos.trim())
+
+    // Preguntar al usuario sobre un producto que exista o si existe, agregarlos a la variable carritoCompra
+    if (producto) {
+        carritoCompra.push(producto)
     } else {
-        comprarProductos = parseInt(prompt("Ingrese un número valido"))
+        comprarProductos = prompt("Ingrese el producto que desea comprar \n1. Lomo italiano ($10)\n2. Chacarero ($8)\n3. Papas fritas - G ($5) \n4. Papas fritas - M \n5. Papas fritas - P \n6. Coca cola \n7. Fanta")
+        continue
+    }
+
+    const desicion = prompt("Deseas continuar comprando? \nsi - no")
+    if (desicion === "si") {
+        seguirComprando = prompt("Ingrese el producto que desea comprar \n1. Lomo italiano ($10)\n2. Chacarero ($8)\n3. Papas fritas - G ($5) \n4. Papas fritas - M \n5. Papas fritas - P \n6. Coca cola \n7. Fanta")
+    } else {
+        seguirComprando = false
     }
 }
 
-// Cálculo del precio total
-const cantidad = parseInt(prompt("Ingrese la cantidad del producto seleccionado"))
-
-const precio = infoProductoDeseado.precio * cantidad
-
-alert("El precio del producto deseado es de: $" + precio)
+console.log(carritoCompra)
+let totalCompra = 0
+carritoCompra.forEach(producto => {
+        totalCompra = totalCompra + producto.precio
+    }
+)
+alert("El total de tu compra es " + totalCompra)
