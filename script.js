@@ -20,7 +20,6 @@ const bebidaF = new producto("Fanta", 7, 3)
 
 // Catalogo de productos
 const productos = [lomoItaliano, chacarero, papasFritasG, papasFritasM, papasFritasP, bebidaC, bebidaF]
-console.log(productos)
 
 
 // Preguntar al cliente los productos que quiere comprar
@@ -44,7 +43,7 @@ while (seguirComprando === true) {
 
     const desicion = prompt("Deseas continuar comprando? \nsi - no")
     if (desicion === "si") {
-        seguirComprando = prompt("Ingrese el producto que desea comprar \n1. Lomo italiano ($10)\n2. Chacarero ($8)\n3. Papas fritas - G ($5) \n4. Papas fritas - M \n5. Papas fritas - P \n6. Coca cola \n7. Fanta")
+        comprarProductos = prompt("Ingrese el producto que desea comprar \n1. Lomo italiano ($10)\n2. Chacarero ($8)\n3. Papas fritas - G ($5) \n4. Papas fritas - M \n5. Papas fritas - P \n6. Coca cola \n7. Fanta")
     } else {
         seguirComprando = false
     }
